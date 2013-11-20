@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>de.aknuth</groupId>
 	<artifactId>TomcatStarter</artifactId>
-	<version>1.5</version>
+	<version>1.6-SNAPSHOT</version>
 	<description>Tomcat Starter</description>
 	<url>https://github.com/aknuth/TomcatStarter</url>
 	<licenses>
@@ -67,6 +67,13 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>ar.com.synergian</groupId>
+				<artifactId>wagon-git</artifactId>
+				<version>0.2.0</version>
+			</extension>
+		</extensions>
 	</build>
 	<dependencies>
 		<dependency>
@@ -106,10 +113,15 @@
 		</dependency>
 
 	</dependencies>
+	<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!--++++++++++++++++++ Repositories ++++++++++++++++++++++++++++++++++++ -->
+	<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	<repositories>
 		<repository>
-			<id>tomcat</id>
-			<url> http://tomcat.apache.org/dev/dist/m2-repository/org/apache/tomcat/</url>
+			<id>geotoolkit.org</id>
+			<name>geotoolkit.org</name>
+			<url>http://maven.geotoolkit.org/</url>
+			<layout>default</layout>
 		</repository>
 		<repository>
 			<id>sun</id>
@@ -120,11 +132,24 @@
 			<url>http://repository.codehaus.org</url>
 		</repository>
 	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>synergian-repo</id>
+			<url>https://raw.github.com/synergian/wagon-git/releases</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<distributionManagement>
+		<repository>
+			<id>github_mvn</id>
+			<name>github_mvn</name>
+			<url>git:snapshots://https://github.com/aknuth/mvn.git</url>
+		</repository>
+	</distributionManagement>
 	<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	<!--++++++++++++++++++ Properties ++++++++++++++++++++++++++++++++++++++ -->
 	<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	<properties>
-		<tomcat.version>7.0.32</tomcat.version>
+		<tomcat.version>7.0.47</tomcat.version>
 		<maven.compile.encoding>UTF-8</maven.compile.encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
