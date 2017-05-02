@@ -1,1 +1,7 @@
-This file was created by IntelliJ IDEA 12.1.3 for binding GitHub repository
+## Features
+
+* fast initial IDE Setup
+* fast Server Startup Time (< 2sec)
+* Debugging and Hot Code Replacement Support for JSP & Java Code
+* no deployment necessary
+* easy modularisation for even bigger projects
