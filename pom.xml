@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.aknuth</groupId>
 	<artifactId>TomcatStarter</artifactId>
-	<version>1.6-SNAPSHOT</version>
+	<version>8.0.43.0</version>
 	<description>Tomcat Starter</description>
 	<url>https://github.com/aknuth/TomcatStarter</url>
 	<licenses>
@@ -39,13 +39,6 @@
 				<version>2.2.1</version>
 			</plugin>
 		</plugins>
-		<extensions>
-			<extension>
-				<groupId>ar.com.synergian</groupId>
-				<artifactId>wagon-git</artifactId>
-				<version>0.2.0</version>
-			</extension>
-		</extensions>
 	</build>
 	<dependencies>
 		<dependency>
@@ -78,6 +71,11 @@
 			<artifactId>tomcat-dbcp</artifactId>
 			<version>${tomcat.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-el</artifactId>
+			<version>${tomcat.version}</version>
+		</dependency>		
 		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
 			<artifactId>ecj</artifactId>
@@ -121,7 +119,7 @@
 	<!--++++++++++++++++++ Properties ++++++++++++++++++++++++++++++++++++++ -->
 	<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	<properties>
-		<tomcat.version>7.0.47</tomcat.version>
+		<tomcat.version>8.0.43</tomcat.version>
 		<maven.compile.encoding>UTF-8</maven.compile.encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
