@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.aknuth</groupId>
+	<groupId>com.github.aknuth</groupId>
 	<artifactId>TomcatStarter</artifactId>
-	<version>8.0.43.0</version>
+	<version>8.0.43-SNAPSHOT</version>
 	<description>Tomcat Starter</description>
 	<url>https://github.com/aknuth/TomcatStarter</url>
 	<licenses>
@@ -37,6 +37,15 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>2.2.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -75,46 +84,14 @@
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-el</artifactId>
 			<version>${tomcat.version}</version>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
 			<artifactId>ecj</artifactId>
-			<version>3.7.2</version>
+			<version>4.3.1</version>
 		</dependency>
 
 	</dependencies>
-	<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-	<!--++++++++++++++++++ Repositories ++++++++++++++++++++++++++++++++++++ -->
-	<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-	<repositories>
-		<repository>
-			<id>geotoolkit.org</id>
-			<name>geotoolkit.org</name>
-			<url>http://maven.geotoolkit.org/</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>sun</id>
-			<url>http://download.java.net/maven/2</url>
-		</repository>
-		<repository>
-			<id>codehaus</id>
-			<url>http://repository.codehaus.org</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>synergian-repo</id>
-			<url>https://raw.github.com/synergian/wagon-git/releases</url>
-		</pluginRepository>
-	</pluginRepositories>
-	<distributionManagement>
-		<repository>
-			<id>github_mvn</id>
-			<name>github_mvn</name>
-			<url>git:snapshots://https://github.com/aknuth/mvn.git</url>
-		</repository>
-	</distributionManagement>
 	<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	<!--++++++++++++++++++ Properties ++++++++++++++++++++++++++++++++++++++ -->
 	<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->

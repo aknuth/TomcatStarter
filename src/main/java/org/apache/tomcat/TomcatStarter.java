@@ -8,7 +8,6 @@
 package org.apache.tomcat;
 
 import java.io.File;
-import java.util.Iterator;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
@@ -16,6 +15,8 @@ import org.apache.catalina.connector.Connector;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.session.StandardManager;
 import org.apache.catalina.startup.Tomcat;
+import org.apache.tomcat.util.scan.Constants;
+import org.apache.tomcat.util.scan.StandardJarScanFilter;
 
 /**
  *
@@ -37,12 +38,9 @@ public class TomcatStarter extends TomcatRunner {
 
 		configuration.updateSystemProperties();
 
-		Iterator<String> contextPathIterator = configuration.getContextPathIterator();
-		while (contextPathIterator.hasNext()) {
-			String contextPath = contextPathIterator.next();
-			createContext(contextPath, configuration.getWebAppSourceDirectory(contextPath));
+		for (WebAppConfiguration webAppConfiguration : configuration.getWebApps()) {
+			createContext(webAppConfiguration);
 		}
-		//tomcat.addWebapp("/frame", new File("webApplication").getAbsolutePath());
 
 		// Erstellen der Konnectoren
 		for (int i = 0; i < configuration.getCountConnectorConfigurations(); i++) {
@@ -80,9 +78,21 @@ public class TomcatStarter extends TomcatRunner {
 
 	}
 
-	private Context createContext(String path, String docBase) throws Exception {
+	private Context createContext(WebAppConfiguration webAppConfiguration) throws Exception {
 		// Erstelle einen Context
-		StandardContext context = (StandardContext) tomcat.addWebapp(path, new File(docBase).getAbsolutePath());
+		StandardContext context = (StandardContext) tomcat.addWebapp(webAppConfiguration.getContextPath(), new File(
+				webAppConfiguration.getWebAppSourceDirectory()).getAbsolutePath());
+
+		if (System.getProperty(Constants.SKIP_JARS_PROPERTY) == null && System.getProperty(Constants.SKIP_JARS_PROPERTY) == null) {
+			StandardJarScanFilter jarScanFilter = (StandardJarScanFilter) context.getJarScanner().getJarScanFilter();
+			if (webAppConfiguration.getJarsToSkip() != null) {
+				jarScanFilter.setTldSkip(webAppConfiguration.getJarsToSkip());
+				jarScanFilter.setPluggabilitySkip(webAppConfiguration.getJarsToSkip());
+			} else if (webAppConfiguration.getJarsToScan() != null) {
+				jarScanFilter.setTldScan(webAppConfiguration.getJarsToScan());
+				jarScanFilter.setPluggabilityScan(webAppConfiguration.getJarsToScan());
+			}
+		}
 
 		//schaltet die Session Persistenz aus ...
 		StandardManager manager = new StandardManager();
@@ -153,7 +163,7 @@ public class TomcatStarter extends TomcatRunner {
 			String basedir = System.getProperty("basedir") == null ? "webApplication" : System.getProperty("basedir");
 			configuration = new Configuration(basedir);
 			String contextPath = System.getProperty("contextPath") == null ? "/" : System.getProperty("contextPath");
-			configuration.addWebApp(contextPath, basedir);
+			configuration.addWebApp(contextPath, basedir, null, null);
 			int port = System.getProperty("port") == null ? 8080 : Integer.parseInt(System.getProperty("port"));
 			configuration.setListenerPort(port);
 		} else {
