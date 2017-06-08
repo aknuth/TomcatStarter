@@ -1,10 +1,3 @@
-/**
- * Actual Version
- * ==============
- * @version $Revision: 1.2 $
- * @author Stefan Richter, Beckmann & Partner CONSULT
- * For a detailed history of this file see bottom !
- */
 package org.apache.tomcat;
 
 public final class ConnectorConfiguration {

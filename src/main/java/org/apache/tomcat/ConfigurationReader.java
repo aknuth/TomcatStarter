@@ -1,10 +1,3 @@
-/**
- * Actual Version
- * ==============
- * @version $Revision: 1.2 $
- * @author Stefan Richter, Beckmann & Partner CONSULT
- * For a detailed history of this file see bottom !
- */
 package org.apache.tomcat;
 
 import java.io.File;
@@ -23,9 +16,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-/**
- * @date: 11.07.2007
- */
 public final class ConfigurationReader {
 
 	private ConfigurationReader() {

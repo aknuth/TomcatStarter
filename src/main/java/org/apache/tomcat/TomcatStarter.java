@@ -1,10 +1,3 @@
-/**
- * Actual Version
- * ==============
- * @version $Revision: 1.15 $
- * @author $Author: aknuth $
- * For a detailed history of this file see bottom !
- */
 package org.apache.tomcat;
 
 import java.io.File;
@@ -18,9 +11,6 @@ import org.apache.catalina.startup.Tomcat;
 import org.apache.tomcat.util.scan.Constants;
 import org.apache.tomcat.util.scan.StandardJarScanFilter;
 
-/**
- *
- */
 public class TomcatStarter extends TomcatRunner {
 	private Tomcat tomcat;
 

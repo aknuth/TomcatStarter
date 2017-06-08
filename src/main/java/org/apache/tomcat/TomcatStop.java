@@ -1,10 +1,3 @@
-/**
- * Actual Version
- * ==============
- * @version $Revision: 1.4 $
- * @author $Author: aknuth $
- * For a detailed history of this file see bottom !
- */
 package org.apache.tomcat;
 
 import java.io.IOException;

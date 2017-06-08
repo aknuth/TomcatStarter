@@ -1,20 +1,3 @@
-//
-// Created on 24.05.2017
-//
-//*************************************
-//* Copyright © 2017                  *
-//*************************************
-//* TOYOTA Kreditbank GmbH            *
-//* TOYOTA Leasing GmbH               *
-//* D-50858 Köln                      *
-//* Toyota-Allee 5                    *
-//* Germany                           *
-//* Telefon: +49 (2234) 102-0         *
-//* Website: www.toyota-fs.de         *
-//*************************************
-//* All rights reserved               *
-//*************************************
-//
 package org.apache.tomcat;
 
 public final class WebAppConfiguration {

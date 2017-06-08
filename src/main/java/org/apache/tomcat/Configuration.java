@@ -1,10 +1,3 @@
-/**
- * Actual Version
- * ==============
- * @version $Revision: 1.1 $
- * @author Stefan Richter, Beckmann & Partner CONSULT
- * For a detailed history of this file see bottom !
- */
 package org.apache.tomcat;
 
 import java.io.File;
@@ -13,9 +6,6 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 
-/**
- * @date: 11.07.2007
- */
 public final class Configuration {
 
 	private static final String BASEDIR_VARIABLE = "${basedir}";

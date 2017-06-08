@@ -1,10 +1,3 @@
-/**
- * Actual Version
- * ==============
- * @version $Revision: 1.4 $
- * @author $Author: aknuth $
- * For a detailed history of this file see bottom !
- */
 package org.apache.tomcat;
 
 import java.io.IOException;
@@ -15,9 +8,7 @@ import java.net.Socket;
 import java.security.AccessControlException;
 import java.util.Random;
 
-/**
- *
- */
+
 public abstract class TomcatRunner implements Runnable {
 
 	protected static int SERVER_LISTENER_PORT;
